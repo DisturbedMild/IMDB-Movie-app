@@ -1,0 +1,27 @@
+.search {
+	width: 100%;
+	position: relative;
+}
+.search input {
+	box-sizing: border-box;
+	width: 100%;
+	height: 50px;
+	border-radius: 20px;
+	color: #fff;
+	border: 1px solid rgba(255,255,255,0.7);
+	background: transparent;
+	padding: 5px 15px;
+	margin-bottom: 50px;
+	font-size: 16px;
+}
+.search input::placeholder {
+	color: #fff;
+}
+.search svg {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	z-index: 10;
+	height: 30px;
+	fill: white;
+}

@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { Fragment } from "react";
+import { Routes, Route } from "react-router-dom";
+
+import Header from "./components/layout/Header";
+import MovieSearch from "./components/movies/MovieSearch/MovieSearch";
+import Movies from "./pages/Movies";
+import Registration from "./pages/Registration";
+import Login from "./pages/Login";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <div className="container">
+        <Header />
+        <MovieSearch />
+        <main>
+          <Routes>
+            <Route path="/home" element={<Movies />}></Route>
+            <Route path="/registration" element={<Registration />}></Route>
+            <Route path="/login" element={<Login />}></Route>
+          </Routes>
+        </main>
+      </div>
+    </Fragment>
   );
 }
 

@@ -1,0 +1,77 @@
+.registration {
+	padding: 20px 30px;
+	background-color: #fff;
+	border-radius: 20px;
+	max-width: 800px;
+	width: 100%;
+	margin: 0 auto;
+	box-sizing: border-box;
+}
+.registration h1 {
+	color: #2b2b2b;
+	margin-bottom: 20px;
+}
+
+.registration form {
+	display: flex;
+	flex-direction: column;
+}
+.registration form label {
+	color: #2b2b2b;
+	font-weight: 600;
+	font-size: 1rem;
+	line-height: 1.2rem;
+	margin-top: 20px;
+	margin-bottom: 5px;
+}
+
+
+.registration form input {
+	border: 1px solid #2b2b2b;
+	padding: 10px 15px;
+	margin-bottom: 5px;
+}
+.registration form input[placeholder] {
+	font-size: 1rem;
+}
+
+.registration button {
+	width: 280px;
+	margin: 20px auto 0;
+	background-color: #2b2b2b;
+	border: 2px solid transparent;
+	color: #fff;
+	height: 40px;
+	font-size: 1rem;
+	font-weight: 600;
+	letter-spacing: 0.1em;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: all 0.3s ease-in-out;
+}
+
+.registration button:hover {
+	border: 2px solid #2b2b2b;
+	color: #2b2b2b;
+	background-color: #fff;
+}
+.registration p {
+	color: tomato;
+}
+
+@media(min-width:992px) {
+	.registration button {
+		width: 480px;
+		margin: 30px auto 0;
+		background-color: #2b2b2b;
+		border: 2px solid transparent;
+		color: #fff;
+		height: 40px;
+		font-size: 1rem;
+		font-weight: 600;
+		letter-spacing: 0.1em;
+		border-radius: 5px;
+		cursor: pointer;
+		transition: all 0.3s ease-in-out;
+	}
+}

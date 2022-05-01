@@ -4,7 +4,7 @@ import classes from "./Header.module.css";
 const Header = () => {
   return (
     <header className={classes.header}>
-      <div className={classes.title}>Movies App</div>
+      <NavLink to='/home' className={classes.title}>Movies App</NavLink>
       <nav>
 				<ul>
 					{/* <li><NavLink href="/favorite">Favorite</NavLink></li>

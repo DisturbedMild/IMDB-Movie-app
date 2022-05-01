@@ -1,6 +1,8 @@
 .search {
 	width: 100%;
 	position: relative;
+	padding: 0px 15px;
+	box-sizing: border-box;
 }
 .search input {
 	box-sizing: border-box;

@@ -3,7 +3,8 @@ import { useState, useCallback } from "react";
 const useHttp = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const sendRequest = useCallback(async (requestConfig, applyData) => {
+
+  const sendRequest = useCallback(async (requestConfig, applyData = null) => {
     setIsLoading(true);
     setError(null);
     try {
@@ -12,18 +13,20 @@ const useHttp = () => {
         headers: requestConfig.headers ? requestConfig.headers : {},
         body: requestConfig.body ? JSON.stringify(requestConfig.body) : null,
       });
+
       if (!response.ok) {
         throw new Error("Something went wrong");
       }
 
       const data = await response.json();
-
       if (data === null) {
         throw new Error("Something went wrong");
       }
-      applyData(data);
+      if(applyData !== null) {
+        applyData(data);
+      }
     } catch (error) {
-      setError(error.message);
+      setError(error.message || "Something went wrong");
     }
     setIsLoading(false);
   }, []);

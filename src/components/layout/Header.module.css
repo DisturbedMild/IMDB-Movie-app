@@ -2,12 +2,16 @@
   display: flex;
   /* justify-content: space-between; */
   align-items: center;
-  padding: 20px 0;
+  padding: 20px 15px;
 }
 .title {
   font-size: 2rem;
   line-height: 1.2;
   font-weight: 700;
+  text-decoration: none;
+}
+.title:hover {
+  text-decoration: none;
 }
 
 .header ul {
@@ -23,7 +27,7 @@
 }
 
 
-.header a {
+.header nav a {
   display: inline-flex;
   justify-content: center;
   align-items: center;

@@ -1,17 +1,14 @@
-import { createSlice, configureStore } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
 
-const initialLoginState = {
-	isLogin: false
-}
+import loginSlice from './login-slice';
+import registrationSlice from './registration-slice';
 
-const loginSlice = createSlice({
-  name: "login",
-  initialState: initialLoginState,
-  reducers: {},
-});
 
 const store = configureStore({
-  reducer: loginSlice.reducer,
+  reducer: {
+    login: loginSlice.reducer,
+    registration: registrationSlice.reducer
+  }
 });
 
 export default store;

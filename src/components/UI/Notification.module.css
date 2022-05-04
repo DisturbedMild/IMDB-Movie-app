@@ -1,0 +1,42 @@
+.notification {
+	border-radius: 7px;
+	padding: 10px 20px;
+	color: #fff;
+	font-size: 1rem;
+	line-height: 1.2;
+	position: absolute;
+	left: 50%;
+	top: 0;
+	animation: display 7s forwards;
+}
+
+.success {
+	background-color: rgb(66, 196, 152, 0.6);
+}
+.error {
+	background-color: tomato;
+}
+@keyframes display {
+	0% {
+		transform: translate(-50%,-100px)
+	}
+	10% {
+		transform: translate(-50%,20px)
+	}
+	20% {
+		transform: translate(-50%,22px)
+	}
+	30% {
+		transform: translate(-50%,20px)
+	}
+	40% {
+		transform: translate(-50%,20px)
+	}
+	50% {
+		transform: translate(-50%,25px)
+	}
+	100% {
+		transform: translate(-50%,-100px);
+		display: none;
+	}
+}

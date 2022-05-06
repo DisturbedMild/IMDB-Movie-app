@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 
 import MoviesComingSoon from "../components/movies/MoviesComingSoon";
 import MoviesInTheather from "../components/movies/MoviesInTheather";
-import Movie from "./Movie";
+import Movie from "../components/movies/Movie";
 
 const Movies = () => {
   return (
@@ -12,7 +12,6 @@ const Movies = () => {
       <MoviesInTheather />
       <Routes>
         <Route path="/movies/movie/:movieId"  element={<Movie />} />
-          
       </Routes>
     </Fragment>
   );

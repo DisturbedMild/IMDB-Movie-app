@@ -25,7 +25,8 @@ function App() {
         <MovieSearch />
         <main>
           <Routes>
-            <Route path="/home" element={<Movies />}></Route>
+            <Route index element={<Movies/>}/>
+            <Route path="/movies" element={<Movies />}></Route>
             <Route path="/registration" element={<Registration />}></Route>
             <Route path="/login" element={<Login />}></Route>
           </Routes>

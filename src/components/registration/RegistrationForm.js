@@ -1,15 +1,20 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 
 import { RegistrationSchema } from "./registration-schema";
-
 import { sendNewUserData } from "../../store/registration-slice";
 
 const RegistrationForm = () => {
+  const registration = useSelector((state) => state.registration);
+  const history = useNavigate();
   const dispatch = useDispatch();
   const onSubmitHandler = (values, actions) => {
     dispatch(sendNewUserData(values));
+   if(registration.isCreated) {
     actions.resetForm();
+    history("../login", { replace: true });
+   }
   };
   return (
     <Formik

@@ -3,11 +3,21 @@
 	line-height: 1.2;
 	margin-bottom: 20px;
 }
-
+.movies {
+	margin-bottom: 50px;
+}
 .movie-items {
 	display: grid;
 	grid-template-columns: repeat(6, 1fr);
 	row-gap: 40px;
 	column-gap: 40px;
 	margin-bottom: 40px;
+}
+
+.movies-header {
+	margin: 40px 0;
+	font-size: 3rem;
+}
+.movies-error {
+	font-size: 1.5rem;
 }

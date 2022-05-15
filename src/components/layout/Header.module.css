@@ -1,8 +1,9 @@
-.header {
+.topnav {
   display: flex;
-  /* justify-content: space-between; */
+  justify-content: space-between;
+  background-color: #048784;
   align-items: center;
-  padding: 20px 15px;
+  padding: 20px 45px;
 }
 .title {
   font-size: 2rem;
@@ -14,20 +15,19 @@
   text-decoration: none;
 }
 
-.header ul {
+.topnav ul {
   display: flex;
   align-items: center;
   column-gap: 20px;
 }
-.header nav {
+.topnav nav {
   display: flex;
 	justify-content: space-between;
-	width: 700px;
 	margin-left: auto;
 }
 
 
-.header nav a {
+.topnav nav a {
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -36,6 +36,6 @@
   font-weight: 700;
 }
 
-.header li + li {
+.topnav li + li {
 	margin-left: 20px;
 }

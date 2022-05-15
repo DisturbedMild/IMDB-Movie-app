@@ -1,14 +1,14 @@
 import RegistrationForm from "../components/registration/RegistrationForm";
 
-import classes from "./Registration.module.css";
+import classes from "./RegistrationPage.module.css";
 
-const Registration = () => {
+const RegistrationPage = () => {
   return (
     <div className={classes.registration}>
-      <h1>Sign up</h1>
+      <h1>Create new account</h1>
       <RegistrationForm />
     </div>
   );
 };
 
-export default Registration;
+export default RegistrationPage;

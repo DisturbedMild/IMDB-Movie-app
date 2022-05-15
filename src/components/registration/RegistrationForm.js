@@ -1,45 +1,42 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import { Formik, Field, Form, ErrorMessage } from "formik";
+import { useNavigate } from "react-router-dom";
 
 import { RegistrationSchema } from "./registration-schema";
 import { sendNewUserData } from "../../store/registration-slice";
 
 const RegistrationForm = () => {
+  const navigate = useNavigate();
   const registration = useSelector((state) => state.registration);
-  const history = useNavigate();
+
   const dispatch = useDispatch();
+
   const onSubmitHandler = (values, actions) => {
-    dispatch(sendNewUserData(values));
-   if(registration.isCreated) {
-    actions.resetForm();
-    history("../login", { replace: true });
-   }
+    dispatch(
+      sendNewUserData(
+        {
+          email: values.email,
+          password: values.password,
+          returnSecureToken: true,
+        },
+        actions,
+        navigate
+      )
+    );
   };
+
   return (
     <Formik
       initialValues={{
-        firstName: "",
-        lastName: "",
         email: "",
         password: "",
-        changepassword: "",
+        confirmPassword: "",
       }}
       validationSchema={RegistrationSchema}
       onSubmit={onSubmitHandler}
     >
       {() => (
         <Form>
-          <label htmlFor="firstname">First Name</label>
-          <Field id="firstName" name="firstName" placeholder="John" />
-          <ErrorMessage name="firstName">
-            {(msg) => <p className="error">*{msg}</p>}
-          </ErrorMessage>
-          <label htmlFor="lastName">Last Name</label>
-          <Field id="lastName" name="lastName" placeholder="Smith" />
-          <ErrorMessage name="lastName">
-            {(msg) => <p className="error">*{msg}</p>}
-          </ErrorMessage>
           <label htmlFor="email">Email</label>
           <Field
             id="email"
@@ -62,18 +59,20 @@ const RegistrationForm = () => {
           <ErrorMessage name="password">
             {(msg) => <p className="error">*{msg}</p>}
           </ErrorMessage>
-          <label htmlFor="changepassword">Password</label>
+          <label htmlFor="confirmPassword">Password</label>
           <Field
-            id="changepassword"
-            name="changepassword"
+            id="confirmPassword"
+            name="confirmPassword"
             type="password"
             placeholder="2-nd password"
             autoComplete="new-password"
           />
-          <ErrorMessage name="changepassword">
+          <ErrorMessage name="confirmPassword">
             {(msg) => <p className="error">*{msg}</p>}
           </ErrorMessage>
-          <button type="submit">Submit</button>
+          <button type="submit">
+            {registration.isLoading ? <p>Wait for it...</p> : "Submit"}
+          </button>
         </Form>
       )}
     </Formik>

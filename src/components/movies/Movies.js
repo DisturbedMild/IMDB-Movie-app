@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 
 import useHttp from "../../hooks/use-http";
-import Loader from "../UI/Loader";
-import MovieItem from "./MovieItem/MovieItem";
-import classes from "./MoviesComingSoon.module.css";
+import LoadingSpinner from "../UI/LoadingSpinner";
+import MovieThumbnail from "./MovieItem/MovieThumbnail";
+import classes from "./Movies.module.css";
 
-const MoviesInTheather = () => {
-  const [moviesInTheatherList, setMoviesInTheatherList] = useState([]);
+const Movies = props => {
+  const [moviesList, setMoviesList] = useState([]);
 
   const { isLoading, error, sendRequest: fetchMovies } = useHttp();
 
@@ -26,30 +26,26 @@ const MoviesInTheather = () => {
           stars: items[key].stars,
           year: items[key].year,
         });
-        setMoviesInTheatherList(transformedMoviesArray);
+        setMoviesList(transformedMoviesArray);
       }
     };
     fetchMovies(
-      { url: "https://imdb-api.com/en/API/InTheaters/k_i0sj17yx" },
+      { url: props.url },
       transformMovies
     );
-  }, [fetchMovies]);
+  }, [fetchMovies, props.url]);
   const content = isLoading ? (
-    <Loader />
-  ) : (
+    <LoadingSpinner />
+  ) : (moviesList.length === 0 ? <p className={classes['movies-error']}>Ooops, looks like no films right now. Please come later</p> :
     <ul className={classes['movie-items']}>
-      {moviesInTheatherList.map((item) => (
-        <MovieItem
+      {moviesList.map((item) => (
+        <MovieThumbnail
           key={item.id}
           item={{
             id: item.id,
-            directors: item.directors,
             title: item.title,
-            genres: item.genres,
             image: item.image,
-            plot: item.plot,
             releaseState: item.releaseState,
-            stars: item.stars,
             year: item.year,
           }}
 					
@@ -59,12 +55,12 @@ const MoviesInTheather = () => {
   );
 
   return (
-    <section className={classes['coming-soon']}>
-      <h2>In Theathers</h2>
+    <section className={classes[`movies ${props.className}`]}>
+      <h2 className={classes['movies-header']}>{props.title}</h2>
       {error && <p>{error}</p>}
       <div>{content}</div>
     </section>
   );
 };
 
-export default MoviesInTheather;
+export default Movies;

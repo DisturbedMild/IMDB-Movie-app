@@ -1,0 +1,49 @@
+.movie {
+	padding: 3rem 2rem;
+	display: flex;
+}
+.movie-img {
+	height: 500px;
+}
+.movie-img img {
+	height: 100%;
+	width: auto;
+}
+.movie h1 {
+	font-size: 3rem;
+	line-height: 1.2;
+	margin-bottom: 20px;
+}
+.movie-content {
+	margin-left: 100px;
+}
+
+.movie-content p {
+	font-size: 24px;
+	font-weight: 300;
+}
+
+.movie-content p span {
+	font-weight: 700;
+}
+.movie-content p + p {
+	margin-top: 10px;
+}
+.movie-actions {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 20px;
+}
+.movie-actions button {
+	width: 30%;
+	height: 40px;
+	border-radius: 5px;
+	border: 2px solid #048784;
+	background: transparent;
+	color: white;
+	cursor: pointer;
+}
+.movie-actions button:hover {
+	background: #048784;
+	color: #fff;
+}

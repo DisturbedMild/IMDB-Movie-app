@@ -38,12 +38,12 @@
 	width: 30%;
 	height: 40px;
 	border-radius: 5px;
-	border: 2px solid #048784;
+	border: 2px solid var(--green);
 	background: transparent;
-	color: white;
+	color: var(--white);
 	cursor: pointer;
 }
 .movie-actions button:hover {
-	background: #048784;
-	color: #fff;
+	background: var(--green);
+	color: var(--white);
 }

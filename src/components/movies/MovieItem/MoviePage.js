@@ -3,9 +3,9 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import useHttp from "../../../hooks/use-http";
 
-import classes from "./MovieItem.module.css";
+import classes from "./MoviePage.module.css";
 
-const MovieItem = () => {
+const MoviePage = () => {
   const [movieItem, setMovieItem] = useState();
   const loginStatus = useSelector((state) => state.login);
   const { sendRequest: fetchMovies } = useHttp();
@@ -73,4 +73,4 @@ const MovieItem = () => {
   return <div className={classes.movie}>{content}</div>;
 };
 
-export default MovieItem;
+export default MoviePage;

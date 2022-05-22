@@ -1,7 +1,7 @@
 .notification {
 	border-radius: 7px;
 	padding: 10px 20px;
-	color: #fff;
+	color: var(--white);
 	font-size: 1rem;
 	line-height: 1.2;
 	position: absolute;
@@ -14,7 +14,7 @@
 	background-color: rgb(66, 196, 152, 0.6);
 }
 .error {
-	background-color: tomato;
+	background-color: var(--red);
 }
 @keyframes display {
 	0% {

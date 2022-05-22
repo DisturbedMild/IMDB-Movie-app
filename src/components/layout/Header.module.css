@@ -1,7 +1,7 @@
 .topnav {
   display: flex;
   justify-content: space-between;
-  background-color: #048784;
+  background-color: var(--green);
   align-items: center;
   padding: 20px 45px;
 }

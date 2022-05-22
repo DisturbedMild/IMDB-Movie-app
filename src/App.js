@@ -3,13 +3,14 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import Header from "./components/layout/Header";
-// import MovieSearch from "./components/movies/MovieSearch/MovieSearch";
+import Footer from "./components/layout/Footer";
 import MoviesPage from "./pages/MoviesPage";
-import MovieItem from "./components/movies/MovieItem/MovieItem";
+import MoviePage from "./components/movies/MovieItem/MoviePage";
 import LoginPage from "./pages/LoginPage";
 import Notification from "./components/UI/Notification";
 const NotFoundPage = React.lazy(() => import("./pages/NotFoundPage"));
 const RegistrationPage = React.lazy(() => import("./pages/RegistrationPage"));
+// const 
 
 function App() {
   const registrationStatus = useSelector((state) => state.registration);
@@ -24,7 +25,6 @@ function App() {
         </Notification>
       )}
       <Header />
-      {/* <MovieSearch /> */}
       <main>
         <Routes>
           <Route
@@ -36,7 +36,7 @@ function App() {
             }
           />
           <Route path="movies" element={<MoviesPage />} />
-            <Route path="movies/movie/:movieId" element={<MovieItem />} />
+          <Route path="movies/movie/:movieId" element={<MoviePage />} />
           <Route
             path="registration"
             element={
@@ -56,6 +56,7 @@ function App() {
           />
         </Routes>
       </main>
+      <Footer/>
     </Fragment>
   );
 }

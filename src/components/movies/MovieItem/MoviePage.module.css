@@ -1,30 +1,33 @@
 .movie {
 	padding: 3rem 2rem;
 	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 .movie-img {
-	height: 500px;
+	height: 300px;
 }
 .movie-img img {
 	height: 100%;
-	width: auto;
 }
 .movie h1 {
-	font-size: 3rem;
+	font-size: 1rem;
 	line-height: 1.2;
 	margin-bottom: 20px;
+	margin-top: 10px;
 }
 .movie-content {
-	margin-left: 100px;
+	margin-left: 0;
 }
 
 .movie-content p {
-	font-size: 24px;
+	font-size: 14px;
 	font-weight: 300;
 }
 
 .movie-content p span {
 	font-weight: 700;
+	display: block;
 }
 .movie-content p + p {
 	margin-top: 10px;
@@ -46,4 +49,69 @@
 .movie-actions button:hover {
 	background: var(--green);
 	color: var(--white);
+}
+
+@media(min-width:576px) {
+	.movie {
+		flex-direction: row;
+		padding: 1rem;
+	}
+	.movie h1 {
+		font-size: 1.2rem;
+		line-height: 1.2;
+		margin-bottom: 20px;
+		margin-top: 0;
+	}
+	.movie-content {
+		margin-left: 40px;
+	}
+	
+	.movie-content p {
+		font-size: 1rem;
+		line-height: 1.2;
+	}
+	
+	.movie-content p span {
+		margin-bottom: 5px;
+	}
+}
+
+@media(min-width:768px) {
+	.movie {
+		flex-direction: row;
+		padding: 1rem;
+	}
+	.movie h1 {
+		font-size: 1.2rem;
+		line-height: 1.2;
+		margin-bottom: 10px;
+		margin-top: 0;
+	}
+	.movie-content {
+		margin-left: 40px;
+	}
+	.movie-content p span {
+		display: inline;
+	}
+}
+
+@media(min-width:1200px) {
+	.movie {
+		padding: 2rem;
+	}
+	.movie-img {
+		height: 500px;
+	}
+	.movie h1 {
+		font-size: 2rem;
+		line-height: 1.2;
+		margin-bottom: 10px;
+	}
+	.movie-content {
+		margin-left: 100px;
+	}
+	
+	.movie-content p {
+		font-size: 1.5rem;
+	}
 }

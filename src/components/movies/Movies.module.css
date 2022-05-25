@@ -17,7 +17,7 @@
 
 .movies-header {
 	margin: 40px 0;
-	font-size: 3rem;
+	font-size: 2rem;
 }
 .movies-error {
 	font-size: 1.5rem;
@@ -32,6 +32,9 @@
 		column-gap: 40px;
 		margin-bottom: 40px;
 	}
+	.movies-header {
+		font-size: 3rem;
+	}
 }
 
 @media(min-width:778px) {
@@ -40,7 +43,18 @@
 	}
 }
 
+@media(min-width:991px) {
+	.movie-items {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}
+
 @media(min-width:1200px) {
+	.movie-items {
+		grid-template-columns: repeat(5, 1fr);
+	}
+}
+@media(min-width:1600px) {
 	.movie-items {
 		grid-template-columns: repeat(6, 1fr);
 	}

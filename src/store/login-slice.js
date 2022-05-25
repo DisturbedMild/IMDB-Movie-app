@@ -3,8 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialLoginState = {
   isLogin: false,
   token: null,
-  email: '',
-  password: ''
+  email: "",
+  password: "",
 };
 
 const loginSlice = createSlice({
@@ -17,7 +17,7 @@ const loginSlice = createSlice({
   },
 });
 
-export const loginAction = (values, navigate) => {
+export const loginAction = (values, formikActions, navigate) => {
   return async (dispatch) => {
     dispatch(
       loginSlice.actions.login({
@@ -46,17 +46,18 @@ export const loginAction = (values, navigate) => {
 
     try {
       const data = await sendRequest();
-       dispatch(
+      dispatch(
         loginSlice.actions.login({
           isLogin: true,
           token: data.idToken,
           email: values.email,
-          password: values.password
+          password: values.password,
         })
       );
+      localStorage.setItem("token", data.idToken);
       navigate("../movies", { replace: true });
     } catch (error) {
-      // alert(error.message)
+      formikActions.setFieldError("password", "Password is not correct");
     }
   };
 };

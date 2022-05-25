@@ -2,14 +2,14 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import { loginAction } from "../../store/login-slice";
-import { Formik, Form, Field } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import { LoginSchema } from "./login-schema";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const onSubmitHandler = (values) => {
+  const onSubmitHandler = (values, actions) => {
     dispatch(
       loginAction(
         {
@@ -17,6 +17,7 @@ const LoginForm = () => {
           password: values.password,
           returnSecureToken: true,
         },
+        actions,
         navigate
       )
     );
@@ -37,6 +38,9 @@ const LoginForm = () => {
             type="email"
             placeholder="Email address"
           />
+          <ErrorMessage name="email">
+            {(msg) => <p className="error">*{msg}</p>}
+          </ErrorMessage>
           <label htmlFor="password">Password</label>
           <Field
             id="password"
@@ -44,6 +48,9 @@ const LoginForm = () => {
             type="password"
             placeholder="Password..."
           />
+          <ErrorMessage name="password">
+            {(msg) => <p className="error">*{msg}</p>}
+          </ErrorMessage>
           <button type="submit">Login</button>
         </Form>
       )}

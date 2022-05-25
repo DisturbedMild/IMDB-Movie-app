@@ -18,7 +18,7 @@ const registrationSlice = createSlice({
   },
 });
 
-export const sendNewUserData = (values, actions, navigate) => {
+export const sendNewUserData = (values, formikActions, navigate) => {
   return async (dispatch) => {
     dispatch(
       registrationSlice.actions.showNotification({
@@ -56,7 +56,7 @@ export const sendNewUserData = (values, actions, navigate) => {
           isLoading: false,
         })
       );
-      actions.resetForm();
+      formikActions.resetForm();
       navigate('../login', {replace: false})
 
     } catch (err) {
@@ -67,7 +67,7 @@ export const sendNewUserData = (values, actions, navigate) => {
           isLoading: false,
         })
       );
-      actions.setFieldError("email", "Email is already used");
+      formikActions.setFieldError("email", "Email is already used");
       values.email = "";
     }
   };

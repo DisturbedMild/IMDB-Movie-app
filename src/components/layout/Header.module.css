@@ -3,8 +3,63 @@
   justify-content: space-between;
   background-color: var(--green);
   align-items: center;
-  padding: 20px 45px;
+  padding: 20px 15px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width:100%;
+  box-sizing: border-box;
 }
+.topnav nav {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 20px;
+}
+
+.topnav ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  column-gap: 50px;
+  padding-top: 40px;
+}
+.topnav ul li {
+  text-align: center;
+  border-top: 1px solid var(--white);
+  width: 100%;
+  padding: 20px;
+}
+.topnav ul li:last-child {
+  border-bottom: 1px solid var(--white);
+}
+.topnav ul li a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 700;
+}
+
+.logout {
+  width: 200px;
+  height: 50px;
+  border: 2px solid var(--white);
+  color: var(--white);
+  background-color: var(--green);
+  border-radius: 8px;
+  margin: 400px auto 0;
+  display: block;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+  font-weight: 700;
+  font-size: 16px;
+}
+.logout:hover {
+  background: var(--white);
+  color: var(--green);
+}
+
 .title {
   font-size: 2rem;
   line-height: 1.2;
@@ -15,27 +70,152 @@
   text-decoration: none;
 }
 
-.topnav ul {
-  display: flex;
-  align-items: center;
-  column-gap: 20px;
+.burger {
+  background-color: var(--green);
+  border: none;
+  cursor: pointer;
+  position: relative;
+  width: 20px;
+  height: 24px;
 }
-.topnav nav {
-  display: flex;
-	justify-content: space-between;
-	margin-left: auto;
+.burger:active {
+  border: none;
+}
+.burger div {
+  width: 20px;
+  height: 3px;
+  background-color: var(--white);
+  border-radius: 10px;
+}
+.burger div + div {
+  margin-top: 5px;
+}
+.burger.active .line-1 {
+  animation: animatedLineOne 0.3s 1 linear both;
+}
+.burger.active .line-3 {
+  animation: animatedLineThree 0.3s 1 linear both;
+  margin-top: 0;
+}
+.burger.active .line-2 {
+  display: none;
+}
+
+.navigation {
+  display: none;
+}
+.navigation.show {
+  display: block;
+  position: fixed;
+  right: 0;
+  top: 78px;
+  height: 100%;
+  width: 100%;
+  transform: translate(100%,0);
+  animation: showNavigation 0.2s 1 linear forwards;
+}
+
+@media (min-width: 661px) {
+  .topnav {
+    flex-direction: row;
+    align-items: center;
+    padding: 20px 45px;
+  }
+  .topnav nav {
+    display: flex;
+    margin-left: auto;
+    justify-content: space-between;
+    margin-top: 0;
+  }
+  .topnav ul {
+    column-gap: 20px;
+  }
+  .topnav li + li {
+    margin-left: 20px;
+  }
+}
+
+@media(min-width:768px) {
+  .burger {
+    display: none;
+  }
+  .topnav {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  .navigation {
+    display: flex;
+    align-items: center;
+  }
+  .topnav nav {
+    margin-top: 0;
+  }
+  .topnav ul {
+    flex-direction: row;
+    padding-top:0;
+    margin-right: 50px
+  }
+  .topnav ul li {
+    border-top: none;
+    width: auto;
+    padding: 0;
+  }
+  .topnav ul li:last-child {
+    border-bottom: none;
+  }
+  .topnav ul li a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 700;
+  }
+  .logout {
+    margin-top: 0;
+    width: 100px;
+    height: 40px;
+  }
+}
+
+@keyframes animatedLineOne {
+  0% {
+    position: relative;
+    z-index: 2;
+    left: 0;
+    top: 0;
+  }
+  100% {
+    position: relative;
+    left: 1.5px;
+    top: 2px;
+    transform: rotate(45deg);
+  }
+}
+@keyframes animatedLineThree {
+  0% {
+    position: relative;
+    z-index: 2;
+    left: 0;
+    top: 0;
+  }
+  100% {
+    position: relative;
+    right: -1.5px;
+    bottom: 1px;
+    transform: rotate(-45deg);
+  }
 }
 
 
-.topnav nav a {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 16px;
-  line-height: 22px;
-  font-weight: 700;
-}
+@keyframes showNavigation {
+    0% {
+      display: block;
+    }
+    100% {
 
-.topnav li + li {
-	margin-left: 20px;
+      background-color: var(--green);
+      transform: translate(0,0);
+    }
 }

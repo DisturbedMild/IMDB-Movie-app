@@ -48,6 +48,7 @@ a:hover {
 main {
   padding: 1rem;
   min-height: 100%;
+  margin-top: 78px;
 }
 #root {
   height: auto;
@@ -55,4 +56,10 @@ main {
   flex-direction: column;
   background-color: var(--black);
   min-height: 100%;
+}
+
+@media(min-width:768px) {
+  main {
+    margin-top: 0;
+  }
 }

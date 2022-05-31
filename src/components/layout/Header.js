@@ -35,7 +35,7 @@ const Header = () => {
         <NavLink to="/favorite">Favorite</NavLink>
       </li>
       <li>
-        <NavLink to="/top">Top 250</NavLink>
+        <NavLink to="/top-movies">Top 250</NavLink>
       </li>
       <li>
         <NavLink to="/waiting">Waiting List</NavLink>

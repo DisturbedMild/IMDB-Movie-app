@@ -7,6 +7,7 @@ import classes from "./MoviePage.module.css";
 
 const MoviePage = () => {
   const [movieItem, setMovieItem] = useState();
+  const [isMovieFavourite, setIsMovieFavourite] = useState(false);
   const loginStatus = useSelector((state) => state.login);
   const { sendRequest: fetchMovies } = useHttp();
 
@@ -25,15 +26,19 @@ const MoviePage = () => {
     );
   }, [fetchMovies, params.movieId]);
 
+  const addToFavouriteHandler = () => {
+    setIsMovieFavourite(!isMovieFavourite)
+  }
+
+
   let content = movieItem ? (
     <>
       <div className={classes["movie-img"]}>
         <img src={movieItem.image} alt="#" />
         {loginStatus.isLogin && (
           <div className={classes["movie-actions"]}>
-            <button>Add to favourite</button>
+            <button onClick={addToFavouriteHandler}>{!isMovieFavourite ? 'Add to': 'Remove from'} favourite</button>
             <button>Add to waitlist</button>
-            <button>Write review</button>
           </div>
         )}
       </div>

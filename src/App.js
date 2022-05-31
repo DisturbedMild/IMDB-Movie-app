@@ -6,11 +6,11 @@ import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
 import MoviesPage from "./pages/MoviesPage";
 import MoviePage from "./components/movies/MovieItem/MoviePage";
-import LoginPage from "./pages/LoginPage";
 import Notification from "./components/UI/Notification";
 const NotFoundPage = React.lazy(() => import("./pages/NotFoundPage"));
 const RegistrationPage = React.lazy(() => import("./pages/RegistrationPage"));
-// const 
+const LoginPage = React.lazy(() => import("./pages/LoginPage"))
+const TomMoviesPage = React.lazy(() => import("./pages/TopMoviesPage"));
 
 function App() {
   const registrationStatus = useSelector((state) => state.registration);
@@ -37,6 +37,7 @@ function App() {
           />
           <Route path="movies" element={<MoviesPage />} />
           <Route path="movies/movie/:movieId" element={<MoviePage />} />
+          <Route path="top-movies" element={<TomMoviesPage />} />
           <Route
             path="registration"
             element={
@@ -45,7 +46,14 @@ function App() {
               </Suspense>
             }
           />
-          <Route path="login" element={<LoginPage />} />
+          <Route
+            path="login"
+            element={
+              <Suspense fallback={<p>Loading...</p>}>
+                <LoginPage />
+              </Suspense>
+            }
+          />
           <Route
             path="*"
             element={
@@ -56,7 +64,7 @@ function App() {
           />
         </Routes>
       </main>
-      <Footer/>
+      <Footer />
     </Fragment>
   );
 }

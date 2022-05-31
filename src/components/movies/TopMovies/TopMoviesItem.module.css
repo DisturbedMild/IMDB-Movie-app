@@ -1,0 +1,6 @@
+.movie-item {
+	display: flex;
+}
+.movie-item div {
+	margin-left: 20px;
+}

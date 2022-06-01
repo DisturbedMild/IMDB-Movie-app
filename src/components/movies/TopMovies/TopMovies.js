@@ -22,7 +22,7 @@ const TopMovies = () => {
 		<div className={classes.top}>
 				{error ? error : ''}
 				{isLoading ? 'Loading...' : (
-					<ul>
+					<ul className={classes['top-list']}>
 						{moviesArray.map(movie => <TopMoviesItem id={movie.id} title={movie.title} image={movie.image} rank={movie.rank} />)}
 					</ul>
 				)}

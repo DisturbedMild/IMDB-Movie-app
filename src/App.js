@@ -10,7 +10,7 @@ import Notification from "./components/UI/Notification";
 const NotFoundPage = React.lazy(() => import("./pages/NotFoundPage"));
 const RegistrationPage = React.lazy(() => import("./pages/RegistrationPage"));
 const LoginPage = React.lazy(() => import("./pages/LoginPage"))
-const TomMoviesPage = React.lazy(() => import("./pages/TopMoviesPage"));
+const TopMoviesPage = React.lazy(() => import("./pages/TopMoviesPage"));
 
 function App() {
   const registrationStatus = useSelector((state) => state.registration);
@@ -37,7 +37,7 @@ function App() {
           />
           <Route path="movies" element={<MoviesPage />} />
           <Route path="movies/movie/:movieId" element={<MoviePage />} />
-          <Route path="top-movies" element={<TomMoviesPage />} />
+          <Route path="top-movies" element={<TopMoviesPage />} />
           <Route
             path="registration"
             element={
